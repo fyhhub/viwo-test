@@ -1,0 +1,56 @@
+{
+  "name": "@viwo/test",
+  "version": "1.1.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "release": "release-it",
+    "format": "prettier --write ./src/*",
+    "prepare": "husky install",
+    "lint": "npx eslint ./src/*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write ./src",
+      "eslint  --fix"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "npm": {
+      "publish": true
+    },
+    "git": {
+      "commitMessage": "chore: Release v${version}"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^17.6.3",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "commitlint": "^17.6.3",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "release-it": "^15.10.3",
+    "typescript": "^5.0.4"
+  }
+}
